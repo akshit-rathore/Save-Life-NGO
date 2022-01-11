@@ -1,0 +1,163 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'CSS files/About.css' %}">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  
+    <title>About us</title>
+  </head>
+  
+  <body>
+  
+  
+  
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+          <a class="navbar-brand text-dark" href="{% url 'home' %}">
+              <img src="{% static 'photos/colorful-tree-of-life logo.webp' %}" alt="" width="32" height="38"
+                  class="d-inline-block align-text-top ">
+              SAVE LIFE
+          </a>
+  
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+              aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          
+  
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+                  <li class="nav-item ">
+                      <a class="nav-link active text-dark" aria-current="page" href="{% url 'home' %}">Home</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link text-dark" href="{% url 'about' %}">About Us</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link text-dark" href="{% url 'events' %}">Events</a>
+                  </li>
+  
+  
+                  <li class="nav-item">
+                      <a class="nav-link text-dark" href="{% url 'contact' %}">Contact Us</a>
+                  </li>
+              </ul>
+              
+              {% if user.is_authenticated %}
+              <button id="btn"><a href="{% url 'dashboard' %}"> DASHBOARD</a></button>
+              <button id="btn"><a href="{% url 'logout' %}"> LOGOUT</a></button>
+              {% else %}
+              <button id="btn"><a href="{% url 'register' %}"> SIGN UP</a></button>
+              <button id="btn"><a href="{% url 'login' %}"> LOGIN</a></button>
+              {% endif %}
+          </div>
+      </div>
+  </nav>
+  
+  
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <!-- <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+            aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+            aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+            aria-label="Slide 3"></button> -->
+        </div>
+        <div class="carousel-inner ">
+          <div class="carousel-item active">
+            <img src="{% static 'photos/page 2..jpg' %}" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block text-white">
+              <h3>SAVE LIFE </h3>
+              <h4> Every donation, no matter how small, can go a long way in putting an end to animal abuse. You can make a
+                donation in an amount that suits you directly to our bank account or mail it to us if you prefer.</h4>
+                <button id="btn"><a href="{% url 'donation' %}"> DONATION </a></button>
+            </div>
+    
+          </div>
+          
+        </div>
+        <!-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span> -->
+        </button>
+      </div>
+
+
+
+    <br>
+    <br>
+    <div class="container my-4">
+      <div class="row">
+        <div class="col-lg-4">
+          <img class="bd-placeholder-img rounded-rectangle" width="350" height="180" src="{% static '/photos/abt2.jpg' %}">
+          <br>
+          <br>
+          <h2>ANIMAL RESCUE</h2>
+          <details>
+            <p>
+              <summary>There are so many animals day in & day out that are subjected to cruelty, road rage or just medical
+                issues.</summary> Save life Foundation works towards helping such animals either on site or by admitting
+              them into our facility.
+            </p>
+          </details>
+  
+  
+  
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <img class="bd-placeholder-img rounded-rectangle" width="350" height="180" src="{% static '/photos/abt1.jpg' %}">
+          <br>
+          <br>
+          <h2>ANIMAL ADOPTION</h2>
+          <details>
+            <p>
+              <summary>Our team of Adoption volunteers work day in & day out finding good homes for the stray & abandoned
+                animals.</summary> Every adoption happens after a strict screening & house visit by our approved
+              volunteers.
+            </p>
+          </details>
+  
+  
+        </div><!-- /.col-lg-4 -->
+  
+        <div class="col-lg-4">
+          <img class="bd-placeholder-img rounded-rectangle" width="350" height="180" src="{% static '/photos/home 3.jpg' %}">
+          <br>
+          <br>
+          <h2>ANIMAL VACCINATIONS</h2>
+          <details>
+            <p>
+              <summary>Our team vaccinates sick and disabled animals every day. Every vaccination is safe under the
+                supervision of a sensible doctor.</summary> We truly believe that to achieve success & to make a
+              difference we need to utilize the existing resources & make each and every animal lover a part of the NGO.
+            </p>
+          </details>
+        </div><!-- /.col-lg-4 -->
+      </div>
+    </div>
+    <br>
+    <br>
+    <hr>
+  
+    <footer class="container">
+      <p class="float-end"><a href="#">Back to top</a></p>
+      <p> Copyrights © 2021–2022 All Rights Reserved by Save Life.</p>
+    </footer>
+  
+  </body>
+
+{% endblock %}

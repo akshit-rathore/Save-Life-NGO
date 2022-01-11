@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Save Life</title>
+    <link rel="stylesheet" href="{% static 'CSS files/Index.css' %}">
+    <link rel="stylesheet" media="screen and (max-width: 1170px" href="{% static 'CSS files/phone.css' %}">
+    <!-- <link rel="stylesheet" href="Rajorpay.html"> -->
+    <link rel="stylesheet" media="screen and (max-width:1320px)" href="{% static 'CSS files/phone.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Akaya+Kanadaka&family=Merriweather:wght@700&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Akaya+Kanadaka&family=Bree+Serif&family=Merriweather:wght@700&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+</head>
+    <style>
+        body{
+            background-color: antiquewhite;
+        }
+        
+        .center {
+            background-color: whitesmoke;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand text-dark" href="{% url 'home' %}">
+            <img src="{% static 'photos/colorful-tree-of-life logo.webp' %}" alt="" width="32" height="38"
+                class="d-inline-block align-text-top ">
+            SAVE LIFE
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+                <li class="nav-item ">
+                    <a class="nav-link active text-dark" aria-current="page" href="{% url 'home' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" href="{% url 'about' %}">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" href="{% url 'events' %}">Events</a>
+                </li>
+
+
+                <li class="nav-item">
+                    <a class="nav-link text-dark" href="{% url 'contact' %}">Contact Us</a>
+                </li>
+            </ul>
+            
+            {% if user.is_authenticated %}
+            <button id="btn"><a href="{% url 'dashboard' %}"> DASHBOARD</a></button>
+            <button id="btn"><a href="{% url 'logout' %}"> LOGOUT</a></button>
+            {% else %}
+            <button id="btn"><a href="{% url 'register' %}"> SIGN UP</a></button>
+            <button id="btn"><a href="{% url 'login' %}"> LOGIN</a></button>
+            {% endif %}
+        </div>
+    </div>
+</nav>
+<div class="center">
+
+    <form class="text-center border border-light p-5" action="{% url 'donation' %}" method="POST">
+        {% csrf_token %}
+
+        <p class="h3 mb-3"><i class="fas fa-coffee"></i>DONATE</p>
+        <p class="mb-3">Help the animals by donating </p>
+        
+        <input type="hidden" name="name" value="{{user.first_name}}">
+        <input type="hidden" name="email" value="{{user.email}}">
+        <input type="hidden" name="username" value="{{user.username}}">
+        <input type="number" name="amount" required class="form-control mb-4" placeholder="Amount">
+        <button id="btn">PAY</button>
+    </form>
+
+<!-- <footer class="container">
+    <p class="float-end"><a href="#">Back to top</a></p>
+    <p> Copyrights © 2021–2022 All Rights Reserved by Save Life.</p>
+</footer> -->
+</div>
+</body>
+
+{% endblock %}

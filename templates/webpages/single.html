@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'CSS files/Event-1.css' %}">
+    <title>{{event.event_name}}</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand text-dark" href="{% url 'home' %}">
+                <img src="{% static 'photos/colorful-tree-of-life logo.webp' %}" alt="" width="32" height="38"
+                    class="d-inline-block align-text-top ">
+                SAVE LIFE
+            </a>
+    
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+    
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+                    <li class="nav-item ">
+                        <a class="nav-link active text-dark" aria-current="page" href="{% url 'home' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="{% url 'about' %}">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="{% url 'events' %}">Events</a>
+                    </li>
+    
+    
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="{% url 'contact' %}">Contact Us</a>
+                    </li>
+                </ul>
+                
+                {% if user.is_authenticated %}
+                <button id="btn"><a href="{% url 'dashboard' %}"> DASHBOARD</a></button>
+                <button id="btn"><a href="{% url 'logout' %}"> LOGOUT</a></button>
+                {% else %}
+                <button id="btn"><a href="{% url 'register' %}"> SIGN UP</a></button>
+                <button id="btn"><a href="{% url 'login' %}"> LOGIN</a></button>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+
+
+    <section id="home">
+        <h1 class="h-primary"> Events <p> SAVE LIFE : A NGO Intiative for Animals</p>
+        </h1>
+        <button id="btn"><a href="{% url 'donation' %}">DONATE</a></button>
+    </section>
+
+    <section class="services-container">
+        <br>
+        <br>
+        <!-- <h2 class="h-primary center">Something short and leading about the collection of our program and Events.</h2> -->
+        <div id="services">
+            <div class="box">
+
+                <img src="{{event.pic.url}}" alt="">
+
+                <p class="center"> <strong>{{event.event_name}}</strong> <br><br> {{event.description}}</p>
+
+            </div>
+            <br>
+            
+        </div>
+    </section>
+
+    <footer class="container">
+        <p class="float-end"><a href="#">Back to top</a></p>
+        <p> Copyrights © 2021–2022 All Rights Reserved by Save Life.</p>
+    </footer>
+</body>
+
+{% endblock %}

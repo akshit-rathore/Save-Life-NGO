@@ -1,0 +1,22 @@
+#btn{
+    text-decoration: none;
+    padding: 5px 20px;
+    border: 2px solid #0d6efd;
+    background-color: #0d6efd;
+    border-radius: 6px;
+    margin: 8px;
+    font-size: 1.2rem;
+    
+    cursor: pointer;
+   
+    
+}
+#btn a{
+    color: White;
+    text-decoration: none;
+}
+#btn :hover{
+    color: rgb(29, 36, 236);
+    
+    
+}
