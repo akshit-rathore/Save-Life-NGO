@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-tz&1is(d6kt1750f2%!@gxwh*(teh1gb^j7p$@6l9jfeyav2vx
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['https://save-life-ngo.herokuapp.com/']
 
 
 # Application definition
