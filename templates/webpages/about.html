@@ -79,17 +79,17 @@
             aria-label="Slide 3"></button> -->
         </div>
         <div class="carousel-inner ">
-          {% for slide in sliders %}
           <div class="carousel-item active">
-            <img src="{% slide.pic.url %}" class="d-block w-100" alt="...">
+            <img src="{% static 'photos/page 2..jpg' %}" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block text-white">
-              <h3>{{slide.headline}}</h3>
-              <h4> {{slide.subtext}}</h4>
+              <h3>SAVE LIFE </h3>
+              <h4> Every donation, no matter how small, can go a long way in putting an end to animal abuse. You can make a
+                donation in an amount that suits you directly to our bank account or mail it to us if you prefer.</h4>
                 <button id="btn"><a href="{% url 'donation' %}"> DONATION </a></button>
             </div>
     
           </div>
-          {% endfor %}
+          
         </div>
         <!-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>

@@ -5,7 +5,7 @@ from datetime import datetime
 # Create your models here.
 class ContactUs(models.Model):
     name = models.CharField(max_length=100)
-    email = models.CharField(max_length=100)
+    email = EmailField(max_length=254)
     phone = models.IntegerField()
     message = models.TextField(blank=True)
     date = models.DateTimeField(blank=True, default=datetime.now)
