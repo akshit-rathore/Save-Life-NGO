@@ -1,17 +1,18 @@
 from django.shortcuts import redirect, render
 from contactus.models import ContactUs
 from django.contrib import messages
+from .models import Slider
 
 # Create your views here.
 def home(request):
     return render(request, 'webpages/home.html')
 
 def about(request):
-    # sliders = Slider.objects.all()
-    # data = {
-    #     'sliders':sliders,
-    # }
-    return render(request, 'webpages/about.html')
+    sliders = Slider.objects.all()
+    data = {
+        'sliders':sliders,
+    }
+    return render(request, 'webpages/about.html', data)
 
 def contact(request):
     if request.method == 'POST':
