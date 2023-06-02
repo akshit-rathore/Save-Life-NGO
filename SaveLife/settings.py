@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
-import django_heroku
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -27,7 +26,7 @@ SECRET_KEY = 'django-insecure-tz&1is(d6kt1750f2%!@gxwh*(teh1gb^j7p$@6l9jfeyav2vx
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://save-life-ngo.herokuapp.com/']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -83,12 +82,12 @@ WSGI_APPLICATION = 'SaveLife.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'df341f571iafiu',
-        'USER': 'nkaitebjtsrnpp',
-        'PASSWORD': '5a609bbe046880f38382da43f330ad2da2243d03a7f441afe754abe5160f9a39',
-        'HOST': 'ec2-18-234-17-166.compute-1.amazonaws.com',
-        'PORT': '5432'
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'akshitrathore$save-life-ngo',
+        'USER': 'akshitrathore',
+        'PASSWORD': '@kki@1469',
+        'HOST': 'akshitrathore.mysql.pythonanywhere-services.com',
+        'PORT': '3306'
     }
 }
 
@@ -129,7 +128,7 @@ USE_TZ = True
 
 STATIC_ROOT = os.path.join(BASE_DIR,'static/')
 STATIC_URL = 'static/'
-django_heroku.settings(locals())
+
 # STATICFILES_DIRS = [
 #     os.path.join(BASE_DIR,'SaveLife/static')
 # ]
